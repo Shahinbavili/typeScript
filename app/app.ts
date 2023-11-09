@@ -13,29 +13,16 @@ let resultPhrase = 'Result is: ';
 
 add(number1, number2, printResult, resultPhrase);
 
-const person: {
-    name: string,
-    age: number,
-    hobbies: string[],
-    role: [number, string]
-} = {
+enum Role  {ADMIN, READ_ONLY,AUTHOR}
+
+const person = {
     name: 'Maximilian',
     age: 30,
     hobbies: ['Sport', 'Cooking'],
-    role: [2, 'author']
-}
-person.role = [1, 'User'];
-
-person.role[1] = 'Author';
-
-person.role.push('Admin');
-
-console.log(person.name);
-
-for (const hobby of person.hobbies) {
-    console.log(hobby)
+    role: Role.ADMIN
 }
 
-for (const item of person.role) {
-    console.log(item);
+
+if (person.role === Role.AUTHOR) {
+    console.log(person.role);
 }

@@ -11,21 +11,19 @@ var number2 = 2.8;
 var printResult = true;
 var resultPhrase = 'Result is: ';
 add(number1, number2, printResult, resultPhrase);
+var Role;
+(function (Role) {
+    Role[Role["ADMIN"] = 0] = "ADMIN";
+    Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
+    Role[Role["AUTHOR"] = 2] = "AUTHOR";
+})(Role || (Role = {}));
+;
 var person = {
     name: 'Maximilian',
     age: 30,
     hobbies: ['Sport', 'Cooking'],
-    role: [2, 'author']
+    role: Role.ADMIN
 };
-person.role = [1, 'User'];
-person.role[1] = 'Author';
-person.role.push('Admin');
-console.log(person.name);
-for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
-    var hobby = _a[_i];
-    console.log(hobby);
-}
-for (var _b = 0, _c = person.role; _b < _c.length; _b++) {
-    var item = _c[_b];
-    console.log(item);
+if (person.role === Role.AUTHOR) {
+    console.log(person.role);
 }
